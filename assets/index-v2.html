@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMBELE TAHIROU — Portfolio Automatisme & Robotique</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070B14;
+      --bg-dark-card: #0F1629;
+      --bg-light: #F4F6FB;
+      --bg-white: #FFFFFF;
+
+      --purple: #6366F1;
+      --purple-glow: #8B5CF6;
+      --magenta: #EC4899;
+      --orange: #F97316;
+      --gold: #F59E0B;
+
+      --text-light: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dark: #0F172A;
+      --text-soft: #475569;
+
+      --border-dark: rgba(255, 255, 255, 0.08);
+      --border-light: #E2E8F0;
+
+      --radius-pill: 9999px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+
+      --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --shadow-card: 0 20px 40px rgba(15, 23, 42, 0.08);
+      --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ===== HEADER & NAVIGATION ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(7, 11, 20, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-dark);
+      transition: all 0.3s ease;
+    }
+
+    nav {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 80px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--text-light);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--magenta));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      font-weight: 800;
+      box-shadow: 0 0 16px rgba(99, 102, 241, 0.5);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: color 0.25s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-light);
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple), var(--magenta));
+      border-radius: 2px;
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 28px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(135deg, var(--purple), var(--purple-glow));
+      color: var(--text-light);
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(99, 102, 241, 0.6);
+    }
+
+    .btn-outline-glow {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-light);
+      border: 1px solid var(--border-dark);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-outline-glow:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-light);
+      margin: 5px 0;
+      transition: 0.3s ease;
+    }
+
+    /* ===== HERO SECTION (DARK + ORBS) ===== */
+    .hero-section {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 160px 32px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Gradient glowing floating circles */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+      opacity: 0.55;
+      animation: floatOrb 12s ease-in-out infinite alternate;
+    }
+
+    .orb-1 {
+      width: 450px;
+      height: 450px;
+      top: -100px;
+      right: 10%;
+      background: radial-gradient(circle, var(--magenta), var(--purple));
+    }
+
+    .orb-2 {
+      width: 300px;
+      height: 300px;
+      bottom: 5%;
+      left: 5%;
+      background: radial-gradient(circle, var(--orange), var(--purple-glow));
+      animation-delay: -5s;
+    }
+
+    .orb-3 {
+      width: 150px;
+      height: 150px;
+      top: 40%;
+      right: 40%;
+      background: radial-gradient(circle, #38BDF8, var(--purple));
+      opacity: 0.35;
+    }
+
+    @keyframes floatOrb {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+
+      100% {
+        transform: translateY(30px) scale(1.08);
+      }
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content .tagline {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-content .subtitle {
+      font-size: 1.35rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, #94A3B8, #E2E8F0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 24px;
+    }
+
+    .hero-content p.desc {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      max-width: 540px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Hero Visual & Floating Cards */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .portrait-wrapper {
+      position: relative;
+      width: 480px;
+      height: 580px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--bg-dark-card);
+    }
+
+    .portrait-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.5s ease;
+    }
+
+    .portrait-wrapper:hover img {
+      transform: scale(1.04);
+    }
+
+    .badge-floating {
+      position: absolute;
+      background: rgba(15, 22, 41, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-dark);
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      z-index: 3;
+      animation: floatBadge 4s ease-in-out infinite alternate;
+    }
+
+    .badge-floating.b1 {
+      top: 40px;
+      left: -30px;
+    }
+
+    .badge-floating.b2 {
+      bottom: 40px;
+      right: -20px;
+      animation-delay: -2s;
+    }
+
+    .badge-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--purple), var(--magenta));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 1.1rem;
+    }
+
+    .badge-info span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .badge-info strong {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      font-weight: 700;
+    }
+
+    @keyframes floatBadge {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-12px);
+      }
+    }
+
+    /* ===== QUOTE & STATS SECTION ===== */
+    .quote-stats-section {
+      background: var(--bg-white);
+      padding: 90px 32px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .quote-container {
+      max-width: 900px;
+      margin: 0 auto 70px;
+      text-align: center;
+    }
+
+    .quote-container blockquote {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+
+    .stats-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+
+    .stat-card {
+      background: var(--bg-light);
+      padding: 30px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--purple), var(--magenta));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .stat-card span {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-soft);
+    }
+
+    /* ===== SERVICES / EXPERTISE SECTION ===== */
+    .services-section {
+      padding: 110px 32px;
+      background: var(--bg-light);
+    }
+
+    .services-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .services-intro .eyebrow {
+      color: var(--purple);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .services-intro h2 {
+      font-size: 2.5rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .services-intro p {
+      color: var(--text-soft);
+      font-size: 1.02rem;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--bg-white);
+      padding: 36px 28px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--purple);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.12);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(99, 102, 241, 0.08);
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 1.4rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    /* ===== SKILLS SECTION (DARK) ===== */
+    .skills-section {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 110px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-header-center {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 64px;
+    }
+
+    .section-header-center .eyebrow {
+      color: var(--magenta);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-header-center h2 {
+      font-size: 2.6rem;
+      margin-bottom: 16px;
+    }
+
+    .section-header-center p {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+    }
+
+    .skills-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px 60px;
+    }
+
+    .skill-item {
+      margin-bottom: 12px;
+    }
+
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .skill-bar {
+      height: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .skill-progress {
+      height: 100%;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(90deg, var(--purple), var(--magenta));
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .skills-badges {
+      max-width: 1100px;
+      margin: 50px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .tech-badge {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-dark);
+      color: var(--text-light);
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .tech-badge:hover {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: var(--purple);
+      transform: translateY(-2px);
+    }
+
+    /* ===== PROJECTS SECTION ===== */
+    .projects-section {
+      padding: 110px 32px;
+      background: var(--bg-light);
+    }
+
+    .projects-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .project-card {
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+      transition: all 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(15, 23, 42, 0.15);
+    }
+
+    .project-img-wrapper {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .project-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-img-wrapper img {
+      transform: scale(1.06);
+    }
+
+    .project-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(7, 11, 20, 0.75);
+      backdrop-filter: blur(8px);
+      color: var(--text-light);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .project-content {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-content h3 {
+      font-size: 1.3rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .project-content p {
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .project-stack {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .project-stack span {
+      font-size: 0.75rem;
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .btn-link {
+      color: var(--purple);
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+
+    .btn-link:hover {
+      gap: 10px;
+    }
+
+    /* ===== CTA CARD BANNER ===== */
+    .cta-section {
+      padding: 60px 32px 100px;
+      background: var(--bg-light);
+    }
+
+    .cta-card {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      border-radius: 32px;
+      padding: 70px 60px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: 0 30px 60px rgba(7, 11, 20, 0.4);
+    }
+
+    .cta-card h2 {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .cta-card p {
+      color: var(--text-muted);
+      font-size: 1.08rem;
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+
+    .cta-visual-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+    }
+
+    .cta-avatar {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.15);
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .cta-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--bg-dark);
+      color: var(--text-muted);
+      padding: 80px 32px 40px;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .footer-logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-light);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: 0.25s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-light);
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 30px auto 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+
+      .hero-container,
+      .services-container,
+      .cta-card {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+
+      .portrait-wrapper {
+        width: 100%;
+        max-width: 440px;
+        height: 480px;
+      }
+
+      .badge-floating.b1 {
+        left: 0;
+      }
+
+      .badge-floating.b2 {
+        right: 0;
+      }
+
+      .stats-grid,
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        height: 70px;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--bg-dark);
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+        display: none;
+        border-bottom: 1px solid var(--border-dark);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .stats-grid,
+      .services-grid,
+      .skills-grid,
+      .projects-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-card {
+        padding: 40px 24px;
+        text-align: center;
+      }
+
+      .cta-visual-wrapper {
+        justify-content: center;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav>
+      <a href="#" class="logo">
+        <div class="logo-mark">DT</div>
+        DEMBELE TAHIROU
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#accueil" class="active">Accueil</a></li>
+        <li><a href="#propos">À propos</a></li>
+        <li><a href="#expertise">Services</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#contact" class="btn-pill btn-gradient" style="padding: 8px 20px;">Me contacter</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileBtn" aria-label="Menu Mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero-section" id="accueil">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="tagline"> Bonjour, je suis</span>
+        <h1>DEMBELE TAHIROU</h1>
+        <div class="subtitle">Automatisme · Robotique · Instrumentation</div>
+        <p class="desc">
+          Étudiant passionné par l'automatisation industrielle et les systèmes intelligents.
+          Je conçois et déploie des solutions de robotique, d'automates PLC et de mesure de haute précision — du
+          prototype à la mise en service terrain.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn-pill btn-gradient">Me contacter</a>
+          <a href="#projets" class="btn-pill btn-outline-glow">Voir mes projets</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="portrait-wrapper">
+          <img src="ma_photo.jpeg" alt="DEMBELE TAHIROU — Ingénieur Automatisme">
+        </div>
+
+        <!-- Floating Badges -->
+        <div class="badge-floating b1">
+          <div class="badge-icon">🤖</div>
+          <div class="badge-info">
+            <span>Spécialité</span>
+            <strong>Robotique 5 DDL</strong>
+          </div>
+        </div>
+
+        <div class="badge-floating b2">
+          <div class="badge-icon">⚡</div>
+          <div class="badge-info">
+            <span>Automatisme</span>
+            <strong>Schneider &amp; Siemens</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUOTE & STATS ===== -->
+  <section class="quote-stats-section" id="propos">
+    <div class="quote-container">
+      Quote Block:
+      <blockquote>
+        “J'aime le processus de résolution de problèmes complexes grâce à des solutions automatisées, fiables et
+        évolutives. Ma passion : injecter l'innovation et la rigueur dans chaque conception.”
+      </blockquote>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <strong>5+</strong>
+        <span>Projets R&amp;D Techniques</span>
+      </div>
+      <div class="stat-card">
+        <strong>3</strong>
+        <span>Domaines d'Expertise</span>
+      </div>
+      <div class="stat-card">
+        <strong>2+</strong>
+        <span>Automates Programmés</span>
+      </div>
+      <div class="stat-card">
+        <strong>1</strong>
+        <span>Bras Robotisé 5 DDL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES / EXPERTISE ===== -->
+  <section class="services-section" id="expertise">
+    <div class="services-container">
+      <div class="services-intro">
+        <span class="eyebrow">Mes Services</span>
+        <h2>Ce que je peux réaliser pour vos projets</h2>
+        <p>
+          De la modélisation à l'intégration physique, j'apporte un savoir-faire méthodique pour garantir la fiabilité,
+          la sécurité et la performance de vos installations.
+        </p>
+        <a href="#contact" class="btn-pill btn-gradient">Discuter d'un projet</a>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3>Automatisme &amp; PLC</h3>
+          <p>Programmation d'automates industriels (Grafcet, Ladder), câblage d'armoires et supervision SCADA pour la
+            gestion de process.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🦾</div>
+          <h3>Robotique Industrielle</h3>
+          <p>Conception mécanique et électronique de bras robotisés, calculs de cinématique inverse et régulation de
+            servomoteurs.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📡</div>
+          <h3>Instrumentation &amp; Capteurs</h3>
+          <p>Intégration de chaînes de mesure de précision, conditionnement du signal et traitement d'acquisition de
+            données (DAQ).</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <h3>Simulation MATLAB</h3>
+          <p>Modélisation de systèmes dynamiques sous MATLAB / Simulink et asservissement de boucles de régulation
+            avancées.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS (DARK) ===== -->
+  <section class="skills-section" id="competences">
+    <div class="section-header-center">
+      <span class="eyebrow">Expertise Technique</span>
+      <h2>Compétences professionnelles maîtrisées</h2>
+      <p>Un ensemble d'outils logiciels et d'équipements industriels manipulés quotidiennement.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Automates Schneider &amp; Siemens (Grafcet, Ladder)</span>
+          <span>95%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 95%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Robotique &amp; Control de Servomoteurs</span>
+          <span>90%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 90%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Programmation Microcontrôleurs (Arduino, C/C++)</span>
+          <span>88%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 88%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>MATLAB / Simulink (Modélisation)</span>
+          <span>85%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 85%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Instrumentation &amp; Acquisition de données</span>
+          <span>90%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 90%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-info">
+          <span>Supervision &amp; Interfaces IHM / SCADA</span>
+          <span>82%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 82%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-badges">
+      <div class="tech-badge">Schneider Somachine</div>
+      <div class="tech-badge">Siemens TIA Portal</div>
+      <div class="tech-badge">C / C++</div>
+      <div class="tech-badge">Arduino IDE</div>
+      <div class="tech-badge">MATLAB Simulink</div>
+      <div class="tech-badge">Bus CAN / Modbus</div>
+      <div class="tech-badge">Oscilloscopes &amp; DAQ</div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section class="projects-section" id="projets">
+    <div class="projects-container">
+      <div class="section-header-center" style="margin-bottom: 48px;">
+        <span class="eyebrow">Réalisations</span>
+        <h2>Projets récents &amp; prototypes inspirants</h2>
+        <p>Découvrez une sélection de réalisations techniques, de la modélisation à l'assemblage physique.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <span class="project-tag">Robotique</span>
+            <img src="project-robot.png" alt="Bras Robotisé 5 DDL">
+          </div>
+          <div class="project-content">
+            <h3>Bras Robotisé 5 DDL</h3>
+            <p>Conception complète, modélisation 3D et programmation de la cinématique directe et inverse pour le
+              déplacement d'objets avec précision.</p>
+            <div class="project-stack">
+              <span>Arduino</span>
+              <span>C++</span>
+              <span>Servomoteurs PWM</span>
+            </div>
+            <a href="#contact" class="btn-link">Détails du projet →</a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <span class="project-tag">Automatisme</span>
+            <img src="project-plc.png" alt="Armoire d'Automatisme PLC">
+          </div>
+          <div class="project-content">
+            <h3>Armoire de Contrôle PLC</h3>
+            <p>Programmation d'automates industriels Schneider avec séquences Grafcet complexes, sécurité machine et
+              supervision sur écran tactile IHM.</p>
+            <div class="project-stack">
+              <span>Schneider</span>
+              <span>Grafcet</span>
+              <span>Modbus</span>
+            </div>
+            <a href="#contact" class="btn-link">Détails du projet →</a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <span class="project-tag">Simulation</span>
+            <img src="project-matlab.png" alt="Simulation MATLAB Simulink">
+          </div>
+          <div class="project-content">
+            <h3>Modélisation Simulink</h3>
+            <p>Simulation dynamique de systèmes asservis et optimisation des paramètres PID pour réguler la vitesse et
+              la position en temps réel.</p>
+            <div class="project-stack">
+              <span>MATLAB</span>
+              <span>Simulink</span>
+              <span>Régulation PID</span>
+            </div>
+            <a href="#contact" class="btn-link">Détails du projet →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="cta-section" id="contact">
+    <div class="cta-card">
+      <div>
+        <h2>Avez-vous un projet en tête ?</h2>
+        <p>
+          Que ce soit pour une opportunité d'alternance, un stage ou un projet d'ingénierie en automatisme et robotique,
+          je suis prêt à relever le défi.
+        </p>
+        <div class="hero-cta">
+          <a href="mailto:tahirou.dembele@example.com" class="btn-pill btn-gradient">Envoyer un message</a>
+          <a href="assets/cv.pdf" class="btn-pill btn-outline-glow" download>Télécharger mon CV</a>
+        </div>
+      </div>
+      <div class="cta-visual-wrapper">
+        <div class="cta-avatar">
+          <img src="ma_photo.jpeg" alt="DEMBELE TAHIROU">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <span style="color: var(--purple);">DT</span> DEMBELE TAHIROU
+      </div>
+      <ul class="footer-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#propos">À propos</a></li>
+        <li><a href="#expertise">Services</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 — DEMBELE TAHIROU. Tous droits réservés.</span>
+      <span>Automatisme · Robotique · Instrumentation industrielle</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Nav Toggle
+    const mobileBtn = document.getElementById('mobileBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Smooth Active Nav Highlight
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.pageYOffset;
+      sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 100;
+        const sectionId = current.getAttribute('id');
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          document.querySelector('.nav-links a[href*=' + sectionId + ']')?.classList.add('active');
+        } else {
+          document.querySelector('.nav-links a[href*=' + sectionId + ']')?.classList.remove('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
